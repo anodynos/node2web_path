@@ -1,12 +1,12 @@
-/** **nodejs 'path' core module.**
+/** 'path' nodejs core module browserify-ied with `--standalone path`.
+Supports all module systems (commonjs, AMD & `window.path`) - check browserify docs.
 
 From [node2web](http://github.com/anodynos/node2web) collection,
-via [browserify-CDN](http://wzrd.in/),
-exposed as 'path' to [bower](http://bower.io) for *browser* usage.
+should/will be exposed as 'path' to [bower](http://bower.io) for *browser* usage.
 
-Latest [browserify-CDN](http://wzrd.in/) reported **version: 'v0.10.12'** 
+browserify version: '3.24.10' 
 **/
-!function(e){"object"==typeof exports?module.exports=e():"function"==typeof define&&define.amd?define(e):"undefined"!=typeof window?window.path=e():"undefined"!=typeof global?global.path=e():"undefined"!=typeof self&&(self.path=e())}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.path=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -25,7 +25,8 @@ process.nextTick = (function () {
     if (canPost) {
         var queue = [];
         window.addEventListener('message', function (ev) {
-            if (ev.source === window && ev.data === 'process-tick') {
+            var source = ev.source;
+            if ((source === window || source === null) && ev.data === 'process-tick') {
                 ev.stopPropagation();
                 if (queue.length > 0) {
                     var fn = queue.shift();
@@ -60,8 +61,8 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],2:[function(require,module,exports){
-var process=require("__browserify_process");// Copyright Joyent, Inc. and other Node contributors.
+},{}],2:[function(_dereq_,module,exports){
+(function (process){// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -285,8 +286,9 @@ var substr = 'ab'.substr(-1) === 'b'
         return str.substr(start, len);
     }
 ;
-
-},{"__browserify_process":1}]},{},[2])
-(2)
+}).call(this,_dereq_("/mnt/tc/DevelopmentProjects/WebStormWorkspace/p/node2web/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"/mnt/tc/DevelopmentProjects/WebStormWorkspace/p/node2web/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":1}],3:[function(_dereq_,module,exports){
+module.exports = _dereq_('path');
+},{"path":2}]},{},[3])
+(3)
 });
-;
