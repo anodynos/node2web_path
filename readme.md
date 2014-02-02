@@ -3,4 +3,4 @@
 From [node2web](http://github.com/anodynos/node2web) collection,
 should/will be exposed as 'path' to [bower](http://bower.io) for *browser* usage.
 
-browserify version: '3.24.10', build date Sun Feb 02 2014 23:05:12 GMT+0200 (EET)
+browserify version: '3.24.10', build date 'Sun Feb 02 2014 23:16:25 GMT+0200 (EET)'
